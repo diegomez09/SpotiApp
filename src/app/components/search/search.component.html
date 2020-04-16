@@ -1,1 +1,12 @@
-<p>search works!</p>
+<div class="row fadeIn animated">
+    <div class="col">
+        <input #termino type="text" (keyup)="buscar(termino.value)" class="form-control mt-3" placeholder="Buscar artista">
+    </div>    
+</div>
+<div class="card-columns fadeIn animated m-3">
+    <div class="card" *ngFor="let artista of arreglo;">
+      <img  [src]="artista.images[0].url" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title" >{{artista.name}}</h5>                
+      </div>
+    </div>

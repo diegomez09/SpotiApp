@@ -10,10 +10,15 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class HomeComponent implements OnInit {
 
-  //paises:any[] = [];
+  arreglo:any[] = [];
   constructor(//private htt:HttpClient
     private spotify:SpotifyService) { 
-    this.spotify.getNewReleases();
+    this.spotify.getNewReleases()
+    .subscribe( (data:any) =>{
+    console.log(data);
+    this.arreglo = data.albums.items;
+    console.log(this.arreglo);
+    });
     //console.log('constructor');
     //this.htt.get('https://restcountries.eu/rest/v2/lang/es').subscribe((data:any) =>{
       //console.log(data);

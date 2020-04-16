@@ -6,17 +6,24 @@ import { HttpClient , HttpHeaders } from '@angular/common/http';
 })
 export class SpotifyService {
 
+  //arregloRecibe:any = {} 
+
   constructor(private http:HttpClient) {
     console.log('spotify servece listo');
    }
 
    getNewReleases(){
      const headers = new HttpHeaders({
-       'Authorization':'Bearer BQAL09y1-S4FO7XWf-QZUT778j1FpvbByjjwer8GWK0rZwt0Nk26m6Kgi-3kUcv4DHZbHcxGJM7SNne2umU'
+       'Authorization':'Bearer BQDilHLd_vU73rokiGX_fGA8Stluca_5Uv2j2uvkx-xJAvjsX15pnuYTKEfv47PJNeV959ZEKRudmOJ4xxo'
      })
-    this.http.get('https://api.spotify.com/v1/browse/new-releases?limit=5', { headers })
-    .subscribe(info =>{
-      console.log(info);
+    return this.http.get('https://api.spotify.com/v1/browse/new-releases', { headers });
+   }
+
+   getArtistas(termino:string){
+     console.log(termino);
+    const headers = new HttpHeaders({
+      'Authorization':'Bearer BQDilHLd_vU73rokiGX_fGA8Stluca_5Uv2j2uvkx-xJAvjsX15pnuYTKEfv47PJNeV959ZEKRudmOJ4xxo'
     })
+   return this.http.get(`https://api.spotify.com/v1/search?q=${termino}&type=artist`, { headers });
    }
 }
