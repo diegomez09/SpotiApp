@@ -1,1 +1,15 @@
-<p>artista works!</p>
+<app-loading *ngIf="bandera"></app-loading>
+<div class="row animated fadeIn" *ngIf="!bandera">
+    <div class="col-2">
+        <img [src]= "arregloArtista.images | noimage" class="img-thumbnail img-circle">
+    </div>
+    <div class="col">
+        <h3>{{arregloArtista.name}}</h3>
+        <p>
+            <a [href]="arregloArtista.external_urls.spotify" target="_blank">Ir a la página del artista</a>
+        </p>
+    </div>
+    <div class="col-4 text-right">
+        <button routerLink="/search" class="btn btn-outline-danger">Backea</button>
+    </div>
+</div>

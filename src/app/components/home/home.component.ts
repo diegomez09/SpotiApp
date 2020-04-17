@@ -10,21 +10,24 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class HomeComponent implements OnInit {
 
-  arreglo:any[] = [];
+  bandera:boolean;
+  arregloHome:any[] = [];
   constructor(//private htt:HttpClient
-    private spotify:SpotifyService) { 
+    private spotify:SpotifyService) {
+    this.bandera = true;
     this.spotify.getNewReleases()
-    .subscribe( (data:any) =>{
-    console.log(data);
-    this.arreglo = data;
-    console.log(this.arreglo);
-    });
+    .subscribe( (data:any) =>{    
+    //console.log(data);
+    this.arregloHome = data;
+    this.bandera=false;
+    }
+    //console.log(this.arreglo);    
     //console.log('constructor');
     //this.htt.get('https://restcountries.eu/rest/v2/lang/es').subscribe((data:any) =>{
       //console.log(data);
       //this.paises = data;
     //});
-  }
+    )};
 
   ngOnInit(): void {
   }
