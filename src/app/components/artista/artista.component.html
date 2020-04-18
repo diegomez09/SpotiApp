@@ -30,8 +30,10 @@
                     <td><img class="img-thumb" [src]="item.album.images | noimage" alt=""></td>
                     <td>{{item.name}}</td>
                     <td>{{item.album.name}}</td>
-                    <td><audio *ngIf="item.preview_url; else noPreview" [src]="item.preview_url" controls ></audio>
-                        <ng-template #noPreview><p> No Preview Available</p></ng-template></td>
+                    <td><iframe [src]="item.id | domseguro" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        <!--<audio *ngIf="item.preview_url; else noPreview" [src]="item.preview_url" controls ></audio>
+                        <ng-template #noPreview><p> No Preview Available</p></ng-template>-->
+                    </td>
                 </tr>
             </tbody>
         </table>
