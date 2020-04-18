@@ -32,7 +32,7 @@ export class ArtistaComponent implements OnInit {
     this.servicio.getSingleArtist(id)
     .subscribe(artista =>{
       this.bandera=true;
-      //console.log(artista);
+      console.log(artista);
       this.arregloArtista = artista;
       this.bandera=false;
     });
