@@ -11,7 +11,9 @@ import { routes } from 'src/app/app.routing';
 })
 export class CardsComponent implements OnInit {
 
-  @Input() arreglo: any[] = [];  
+  @Input() arreglo: any[] = [];
+  
+  item:string;
 
 //Este componente solo recibe el arreglo ya procesado de la api para poder mostrarlo
   constructor(private router:Router    
@@ -19,7 +21,7 @@ export class CardsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.arreglo);
+    //console.log(this.arreglo);
   }
 
   verArtista(item:any){

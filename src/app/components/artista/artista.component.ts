@@ -11,7 +11,8 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class ArtistaComponent implements OnInit {
 
-  arregloArtista:any = {}; 
+  arregloArtista:any = []; 
+  top:any = [];
   id:string;
   bandera:boolean;
 
@@ -19,7 +20,8 @@ export class ArtistaComponent implements OnInit {
     this.bandera=true;
     this.router.params.subscribe(params =>{
       //console.log(params);
-      this.getArtista(params['id']);
+      this.getArtista(params['id']);      
+      this.toptracks(params['id']);
     });        
    }
 
@@ -34,5 +36,13 @@ export class ArtistaComponent implements OnInit {
       this.arregloArtista = artista;
       this.bandera=false;
     });
-  }
+      }
+
+    toptracks(id:string){
+      this.servicio.toptracks(id)
+      .subscribe(top =>{
+        console.log(top);
+        this.top = top;
+      })  
+    }
 }

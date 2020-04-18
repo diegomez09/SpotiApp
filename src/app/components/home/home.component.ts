@@ -10,8 +10,10 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class HomeComponent implements OnInit {
 
+  
   bandera:boolean;
   arregloHome:any[] = [];
+  arregloHomeD:any[] = [];
   constructor(//private htt:HttpClient
     private spotify:SpotifyService) {
     this.bandera = true;
@@ -19,6 +21,7 @@ export class HomeComponent implements OnInit {
     .subscribe( (data:any) =>{    
     //console.log(data);
     this.arregloHome = data;
+    console.log(this.arregloHome);    
     this.bandera=false;
     }
     //console.log(this.arreglo);    
