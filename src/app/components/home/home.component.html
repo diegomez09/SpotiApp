@@ -1,2 +1,8 @@
 <app-loading class="mt-3" *ngIf="bandera"></app-loading>
+
+<div *ngIf="error" class="alet alert-danger animated fadeIn">
+    <h3>Error</h3>
+    <p>Valió cabeza o el token ya no sirve</p>    
+  </div>
+
 <app-cards *ngIf="!bandera" [arreglo]="arregloHome"></app-cards>

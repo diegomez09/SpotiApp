@@ -11,7 +11,7 @@ export class SpotifyService {
   
   constructor(private http:HttpClient) {
     console.log('spotify servece listo');
-   }
+   }   
 
    getQuery(query:string){
     const headers = new HttpHeaders({
